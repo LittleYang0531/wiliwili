@@ -85,6 +85,7 @@ public:
         CURL* curl = session->GetCurlHolder()->handle;
         curl_easy_setopt(curl, CURLOPT_SHARE, HTTP::CURL_SHARE.getShare());
         curl_easy_setopt(curl, CURLOPT_DNS_CACHE_TIMEOUT, HTTP::DNS_CACHE_TIMEOUT);
+        curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V6);
         session->SetTimeout(cpr::Timeout{bilibili::HTTP::TIMEOUT});
         session->SetConnectTimeout(cpr::ConnectTimeout{bilibili::HTTP::CONNECTION_TIMEOUT});
         session->SetHeader(bilibili::HTTP::HEADERS);
